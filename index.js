@@ -64,7 +64,7 @@ async function doSearch(q) {
         btn.textContent = 'Added';
         btn.disabled = true;
         btn.classList.add('opacity-60', 'cursor-not-allowed');
-        } else {
+      } else {
         btn.addEventListener('click', () => {
           addFavorite(book);
           btn.textContent = 'Added';
@@ -72,7 +72,7 @@ async function doSearch(q) {
           btn.classList.add('opacity-60', 'cursor-not-allowed');
           showToast('Added to favorites');
           // Navigate immediately to favorites page
-        //   window.location.href = 'favorite.html';
+          //   window.location.href = 'favorite.html';
         });
       }
       if (viewBtn) {
@@ -116,14 +116,14 @@ function init() {
   const learnMoreClose = el('learnMoreClose');
   const aboutBtn = el('aboutBtn');
   const aboutBtnMobile = el('aboutBtnMobile');
-  
+
   if ((learnMoreBtn || aboutBtn || aboutBtnMobile) && learnMoreModal) {
     const openModal = () => learnMoreModal.classList.remove('hidden');
     if (learnMoreBtn) learnMoreBtn.addEventListener('click', openModal);
     if (aboutBtn) aboutBtn.addEventListener('click', openModal);
     if (aboutBtnMobile) aboutBtnMobile.addEventListener('click', openModal);
   }
-  
+
   if (learnMoreClose && learnMoreModal) {
     learnMoreClose.addEventListener('click', () => {
       learnMoreModal.classList.add('hidden');
@@ -142,13 +142,13 @@ function init() {
   const contactBtnMobile = el('contactBtnMobile');
   const contactModal = el('contactModal');
   const contactClose = el('contactClose');
-  
+
   if ((contactBtn || contactBtnMobile) && contactModal) {
     const openModal = () => contactModal.classList.remove('hidden');
     if (contactBtn) contactBtn.addEventListener('click', openModal);
     if (contactBtnMobile) contactBtnMobile.addEventListener('click', openModal);
   }
-  
+
   if (contactClose && contactModal) {
     contactClose.addEventListener('click', () => {
       contactModal.classList.add('hidden');
