@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My favorite books</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-200 text-gray-800">
+    <header class="bg-sky-950 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="Book Logo" class="w-10 h-10 object-contain">
+                <a href="index.html" class="text-xl sm:text-2xl font-semibold text-white hover:text-indigo-600">Book
+                    Explorer</a>
+            </div>
+
+            <nav class="flex items-center space-x-6 ">
+                <a href="index.html"
+                    class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">Home</a>
+                <a href="favorite.html"
+                    class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">Favorites</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        <h1 class="text-4xl font-semibold text-center underline">Your Favorites Book</h1>
+        <!-- <p class="text-sm text-gray-500 mt-1">Add or remove favorite books.</p> -->
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Available books (left/middle) -->
+            <section class="md:col-span-2">
+                <h2 class="text-xl font-semibold mb-4">Available Books</h2>
+                <div id="availableBooks" class="grid grid-cols-1 sm:grid-cols-2 gap-6"></div>
+            </section>
+
+            <!-- Favorites (right) -->
+            <aside class="bg-white rounded-lg shadow-sm p-4">
+                <h2 class="text-lg font-semibold mb-3">Favorites</h2>
+                <div id="favoritesList" class="space-y-3 text-sm"></div>
+                <p id="emptyHint" class="text-gray-400 text-sm mt-4">No favorites yet — add some from the left.</p>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Book Detail Modal -->
+    <div id="bookModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
+            <div class="bg-indigo-600 text-white p-4 flex items-center justify-between">
+                <h2 id="modalTitle" class="text-xl font-semibold">Book Title</h2>
+                <button id="modalClose" class="text-white hover:text-gray-200">&times;</button>
+            </div>
+            <div class="p-6">
+                <img id="modalCover" src="" alt="Book Cover" class="w-32 h-48 object-cover rounded mb-4 mx-auto" />
+                <p class="font-semibold" id="modalAuthor">Author</p>
+                <p id="modalDesc" class="text-sm text-gray-600 mt-4">No description available.</p>
+                <a id="modalLink" href="#" target="_blank"
+                    class="text-indigo-600 hover:underline mt-4 inline-block">View on OpenLibrary →</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-sky-950 text-white text-center p-4 ">
+        © 2026 Book Explorer. All rights reserved.
+    </footer>
+
+    <script type="module" src="./js/favorites.js"></script>
+</body>
+
+</html>
