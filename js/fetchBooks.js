@@ -1,4 +1,5 @@
 // Lightweight module to fetch books from Open Library Search API
+
 export default async function fetchBooks(query, { limit = 20 } = {}) {
   if (!query || String(query).trim() === '') return [];
   const url = `https://openlibrary.org/search.json?title=${encodeURIComponent(query)}&limit=${limit}`;

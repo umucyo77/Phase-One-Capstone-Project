@@ -30,11 +30,13 @@ function createCard(book) {
   return article;
 }
 
-function setLoading(loading) {
+export function setLoading(loading) {
   const loader = el(LOADING_ID);
   if (!loader) return;
   loader.style.display = loading ? 'block' : 'none';
 }
+
+
 
 function setNoResults(show) {
   const nr = el(NORESULT_ID);
