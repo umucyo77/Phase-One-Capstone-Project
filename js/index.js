@@ -30,7 +30,7 @@ function createCard(book) {
   return article;
 }
 
-export function setLoading(loading) {
+ function setLoading(loading) {
   const loader = el(LOADING_ID);
   if (!loader) return;
   loader.style.display = loading ? 'block' : 'none';
