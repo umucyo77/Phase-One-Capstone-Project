@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>About - Book Explorer</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-200 text-gray-800">
+	<!-- NAVBAR -->
+	<header class="bg-sky-950 shadow-sm sticky top-0 z-50">
+		<div class="container mx-auto px-4 sm:px-6 md:px-8 py-4 flex items-center justify-between">
+			<div class="flex items-center gap-3">
+				<img src="logo.png" alt="Book Logo" class="w-10 h-10 object-contain">
+				<a href="index.html" class="text-xl sm:text-2xl font-semibold text-white hover:text-indigo-600">Book
+					Explorer</a>
+			</div>
+
+			<nav class="hidden md:flex items-center space-x-6">
+				<a href="index.html"
+					class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">Home</a>
+				<a href="about.html"
+					class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">About</a>
+				<a href="favorites.html"
+					class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">Favorites</a>
+
+			</nav>
+			<button id="menuBtn" class="md:hidden p-2 rounded-md text-white hover:bg-sky-900">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+					stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+				</svg>
+			</button>
+		</div>
+		<div id="mobileMenu" class="md:hidden border-t hidden bg-sky-900">
+			<div class="px-4 py-3 space-y-2">
+				<a href="index.html" class="block text-white hover:text-indigo-600">Home</a>
+				<a href="about.html" class="block text-white hover:text-indigo-600">About</a>
+				<a href="favorites.html" class="block text-white hover:text-indigo-600">Favorites</a>
+			</div>
+		</div>
+	</header>
+
+	<!-- HERO -->
+	<section class="bg-indigo-500 text-white">
+		<div class="container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 text-center">
+			<h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold">About Book Explorer</h1>
+			<p class="mt-4 text-indigo-100 text-sm sm:text-base max-w-2xl mx-auto">Learn more about our mission and
+				what makes Book Explorer the ultimate book discovery platform.</p>
+		</div>
+	</section>
+
+	<!-- CONTENT -->
+	<main class="container mx-auto px-4 sm:px-6 md:px-8 py-12">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+			<!-- Left column -->
+			<div>
+				<h2 class="text-2xl sm:text-3xl font-bold mb-6">Our Mission</h2>
+				<p class="text-gray-700 mb-4">
+					Book Explorer is dedicated to helping readers discover their next favorite book. We believe that
+					everyone deserves access to a world of literature, regardless of their reading preferences or
+					background.
+				</p>
+				<p class="text-gray-700 mb-4">
+					By leveraging the comprehensive OpenLibrary database, we provide an easy-to-use platform that makes
+					book discovery enjoyable, intuitive, and accessible to all.
+				</p>
+				<p class="text-gray-700">
+					Whether you're searching for a classic masterpiece, a contemporary bestseller, or a hidden gem, Book
+					Explorer is here to help you find it.
+				</p>
+			</div>
+
+			<!-- Right column -->
+			<div>
+				<h2 class="text-2xl sm:text-3xl font-bold mb-6">Why Choose Us?</h2>
+				<ul class="space-y-4">
+					<li class="flex items-start gap-3">
+						<span class="text-indigo-600 text-2xl flex-shrink-0">✨</span>
+						<div>
+							<h3 class="font-semibold text-lg">Powerful Search</h3>
+							<p class="text-gray-600">Find books by title, author, genre, and more with our
+								advanced search functionality.</p>
+						</div>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-indigo-600 text-2xl flex-shrink-0">❤️</span>
+						<div>
+							<h3 class="font-semibold text-lg">Save Your Favorites</h3>
+							<p class="text-gray-600">Create a personalized collection of books you love and
+								access them anytime.</p>
+						</div>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-indigo-600 text-2xl flex-shrink-0">📱</span>
+						<div>
+							<h3 class="font-semibold text-lg">Responsive Design</h3>
+							<p class="text-gray-600">Enjoy a seamless experience on desktop, tablet, and mobile
+								devices.</p>
+						</div>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-indigo-600 text-2xl flex-shrink-0">🌙</span>
+						<div>
+							<h3 class="font-semibold text-lg">Dark Mode</h3>
+							<p class="text-gray-600">Comfortable reading experience with our built-in dark mode
+								support.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Technology Section -->
+		<div class="mt-16 bg-white rounded-lg p-8 shadow-md">
+			<h2 class="text-2xl sm:text-3xl font-bold mb-6 text-center">Powered by Open Source</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+				<div class="text-center">
+					<h3 class="font-semibold text-lg mb-2">OpenLibrary</h3>
+					<p class="text-gray-700 mb-4">Book Explorer is powered by OpenLibrary, an open
+						source project by the Internet Archive that provides access to millions of books.</p>
+					<a href="https://openlibrary.org" target="_blank"
+						class="text-indigo-600 hover:underline font-medium">Visit OpenLibrary →</a>
+				</div>
+				<div class="text-center">
+					<h3 class="font-semibold text-lg mb-2">Built for Everyone</h3>
+					<p class="text-gray-700 mb-4">Book Explorer is built with accessibility and
+						user-experience in mind, making it easy for anyone to discover and enjoy books.</p>
+					<a href="https://github.com/umucyo77/Phase-One-Capstone-Project" target="_blank"
+						class="text-indigo-600 hover:underline font-medium">View on GitHub →</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Contact Section -->
+		<div class="mt-16 text-center">
+			<h2 class="text-2xl sm:text-3xl font-bold mb-6">Questions or Feedback?</h2>
+			<p class="text-gray-700 mb-6 max-w-2xl mx-auto">We'd love to hear from you! Feel free
+				to reach out with any questions, suggestions, or feedback about Book Explorer.</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="mailto:info@bookexplorer.com"
+					class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">Email
+					Us</a>
+				<a href="https://github.com/umucyo77/Phase-One-Capstone-Project" target="_blank"
+					class="inline-block border border-indigo-600 text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition">Follow
+					on GitHub</a>
+			</div>
+		</div>
+	</main>
+
+	<!-- FOOTER -->
+	<footer class="bg-sky-950 text-white text-center p-4 mt-12">
+		© 2026 Book Explorer. All rights reserved.
+	</footer>
+
+	<script type="module" src="./js/main.js"></script>
+
+</body>
+
+</html>

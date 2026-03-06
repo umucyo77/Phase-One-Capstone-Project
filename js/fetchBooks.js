@@ -1,22 +1,35 @@
-// Lightweight module to fetch books from Open Library Search API
+const SEARCH_ENDPOINT = 'https://openlibrary.org/search.json';
+const COVER_ENDPOINT = 'https://covers.openlibrary.org/b/id/';
+const DEFAULT_COVER = 'https://via.placeholder.com/150x200?text=No+Cover';
 
-export default async function fetchBooks(query, { limit = 20 } = {}) {
-  if (!query || String(query).trim() === '') return [];
-  const url = `https://openlibrary.org/search.json?title=${encodeURIComponent(query)}&limit=${limit}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error('Failed to fetch books');
-  const data = await res.json();
-  // Map to simplified structure
-  return (data.docs || []).map(doc => {
-    const id = doc.key || doc.cover_edition_key || doc.edition_key?.[0] || doc.title;
-    const title = doc.title || 'Untitled';
-    const author = (doc.author_name && doc.author_name[0]) || 'Unknown';
-    const coverId = doc.cover_i;
-    const cover = coverId ? `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` : null;
-    return { id, title, author, cover };
-  });
+export async function fetchBooks(query) {
+    const term = query.trim() || 'programming';
+    const params = new URLSearchParams({
+        q: term,
+        limit: '40',
+        fields: 'key,title,author_name,cover_i,first_publish_year'
+    });
+
+    const response = await fetch(`${SEARCH_ENDPOINT}?${params.toString()}`);
+    if (!response.ok) {
+        throw new Error('Open Library request failed');
+    }
+
+    const data = await response.json();
+    const docs = data.docs || [];
+
+    return docs.map((doc) => {
+        const cover = doc.cover_i
+            ? `${COVER_ENDPOINT}${doc.cover_i}-M.jpg`
+            : DEFAULT_COVER;
+
+        return {
+            id: doc.key,
+            title: doc.title || 'Untitled',
+            author: doc.author_name ? doc.author_name.join(', ') : 'Unknown Author',
+            year: doc.first_publish_year ? String(doc.first_publish_year) : '—',
+            cover,
+            preview: doc.key ? `https://openlibrary.org${doc.key}` : '#'
+        };
+    });
 }
-
-
-
- 

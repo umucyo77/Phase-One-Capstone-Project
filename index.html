@@ -20,30 +20,25 @@
 
 			<nav class="hidden md:flex items-center space-x-6">
 				<a href="#books"
-					class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">Home</a>
-				<button id="aboutBtn"
-					class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">About</button>
-				<button id="contactBtn"
-					class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">Contact</button>
-				<a href="favorite.html"
+				class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">Home</a>
+			<a href="about.html"
+				class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">About</a>
+			<a href="favorites.html"
 					class="text-white font-semibold hover:text-indigo-600 cursor-pointer bg-none border-none p-0">Favorites</a>
 
 			</nav>
-			<button id="menuBtn" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100">
+			<button id="menuBtn" class="md:hidden p-2 rounded-md text-white hover:bg-sky-900">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
 				</svg>
 			</button>
 		</div>
-		<div id="mobileMenu" class="md:hidden border-t hidden">
+		<div id="mobileMenu" class="md:hidden border-t hidden bg-sky-900">
 			<div class="px-4 py-3 space-y-2">
-				<a href="#books" class="block text-gray-700">Home</a>
-				<button id="aboutBtnMobile"
-					class="block text-gray-700 w-full text-left bg-none border-none p-0">About</button>
-				<button id="contactBtnMobile"
-					class="block text-gray-700 w-full text-left bg-none border-none p-0">Contact</button>
-				<a href="favorite.html" class="block text-gray-700">Favorites</a>
+				<a href="#books" class="block text-white hover:text-indigo-600">Home</a>
+				<a href="about.html" class="block text-white hover:text-indigo-600">About</a>
+				<a href="favorites.html" class="block text-white hover:text-indigo-600">Favorites</a>
 			</div>
 		</div>
 	</header>
@@ -58,8 +53,6 @@
 				<a href="#books"
 					class="w-full sm:w-auto bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:shadow-md text-center">Browse
 					Books</a>
-				<button id="learnMoreBtn"
-					class="w-full sm:w-auto border border-white/30 px-6 py-3 rounded-lg hover:bg-white/10 transition">Learn More</button>
 			</div>
 		</div>
 	</section>
@@ -68,20 +61,22 @@
 	<main class="container mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12" id="books">
 		<div class="flex items-center justify-between">
 			<h2 class="text-xl sm:text-2xl font-semibold">Featured Books</h2>
-
 		</div>
 
 		<div class="mt-6">
 			<form id="bookSearchForm" class="flex flex-col sm:flex-row gap-2">
-				<input id="bookSearchInput" type="search" placeholder="Search books by title"
+				<input id="search-input" type="search" placeholder="Search books by title"
 					class="flex-1 border border-gray-300 rounded-lg py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" />
-				<button type="submit"
+				<button id="search-btn" type="button"
 					class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium text-sm sm:text-base shadow-md hover:shadow-lg hover:from-indigo-700 hover:to-indigo-800 active:scale-95 transition-all duration-200 cursor-pointer whitespace-nowrap">Search</button>
 			</form>
 
-			<div id="booksLoading" class="mt-6 text-center text-gray-600 hidden">Loading…</div>
-			<div id="booksNoResult" class="mt-6 text-center text-gray-500 hidden">No results found.</div>
-			<div id="booksGrid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+			<div id="loading" class="mt-6 text-center text-gray-600 hidden">
+				<div class="inline-block">
+					<div class="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+				</div>
+			</div>
+			<div id="display-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
 		</div>
 	</main>
 
@@ -90,92 +85,9 @@
 		© 2026 Book Explorer. All rights reserved.
 	</footer>
 
-	<!-- Learn More Modal -->
-	<div id="learnMoreModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-		<div class="bg-white rounded-lg shadow-lg w-full max-h-[90vh] max-w-2xl overflow-y-auto">
-			<div class="p-4 sm:p-6 flex justify-between items-start border-b sticky top-0 bg-white">
-				<h2 class="text-xl sm:text-2xl font-semibold pr-4">About Book Explorer</h2>
-				<button id="learnMoreClose"
-					class="text-gray-500 hover:text-gray-700 text-2xl flex-shrink-0">&times;</button>
-			</div>
-			<div class="p-4 sm:p-6 space-y-4 text-gray-700 text-sm sm:text-base">
-				<p><strong>Welcome to Book Explorer!</strong></p>
-				<p>Discover and explore thousands of books from the OpenLibrary database. Whether you're looking for
-					classics, contemporary fiction, or non-fiction, our app makes it easy to search, explore, and keep
-					track of your favorite books.</p>
-				<h3 class="font-semibold text-base sm:text-lg mt-4">Features:</h3>
-				<ul class="list-disc list-inside space-y-2">
-					<li><strong>Search:</strong> Find books by title, author, or genre using our powerful search engine.
-					</li>
-					<li><strong>Book Details:</strong> Click "View" on any book to see detailed information and cover
-						images.</li>
-					<li><strong>Favorites:</strong> Add books to your favorites list with one click. Your favorites are
-						saved locally.</li>
-					<li><strong>Responsive Design:</strong> Enjoy a seamless experience on desktop, tablet, and mobile
-						devices.</li>
-				</ul>
-				<h3 class="font-semibold text-lg mt-4">How to Use:</h3>
-				<ol class="list-decimal list-inside space-y-2">
-					<li>Search for books by title in the search bar.</li>
-					<li>Click "View" to see book details, or "Add" to save to your favorites.</li>
-					<li>Visit the Favorites page to view all your saved books.</li>
-					<li>Remove books from favorites anytime.</li>
-				</ol>
-				<p class="text-sm text-gray-500 mt-4">Powered by <a href="https://openlibrary.org" target="_blank"
-						class="text-indigo-600 hover:underline">OpenLibrary</a>, an open source project by the Internet
-					Archive.</p>
-			</div>
-		</div>
-	</div>
 
-	<!-- Contact Modal -->
-	<div id="contactModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-		<div class="bg-white rounded-lg shadow-lg w-full max-w-md">
-			<div class="p-4 sm:p-6 flex justify-between items-start border-b">
-				<h2 class="text-xl sm:text-2xl font-semibold pr-4">Contact Us</h2>
-				<button id="contactClose"
-					class="text-gray-500 hover:text-gray-700 text-2xl flex-shrink-0">&times;</button>
-			</div>
-			<div class="p-4 sm:p-6 space-y-4 text-gray-700 text-sm sm:text-base">
-				<p>Have questions or feedback about Book Explorer? We'd love to hear from you!</p>
-				<div class="space-y-2">
-					<p><strong>Email:</strong> <a href="mailto:info@bookexplorer.com"
-							class="text-indigo-600 hover:underline">info@bookexplorer.com</a></p>
-					<p><strong>GitHub:</strong> <a href="https://github.com/umucyo77/Phase-One-Capstone-Project" target="_blank"
-							class="text-indigo-600 hover:underline">github.com/bookexplorer</a></p>
-				</div>
-				<p class="text-sm text-gray-500 mt-4">Follow us on social media for updates and book recommendations!
-				</p>
-			</div>
-		</div>
-	</div>
 
-	<!-- Book detail modal (hidden by default) -->
-	<div id="bookModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-		<div class="bg-white rounded-lg shadow-lg w-full max-h-[90vh] max-w-2xl overflow-y-auto">
-			<div class="p-4 sm:p-6 flex justify-between items-start sticky top-0 bg-white border-b">
-				<div class="pr-4">
-					<h3 id="modalTitle" class="text-lg sm:text-xl font-semibold"></h3>
-					<p id="modalAuthor" class="text-xs sm:text-sm text-gray-500 mt-1"></p>
-				</div>
-				<button id="modalClose"
-					class="text-gray-500 hover:text-gray-700 flex-shrink-0 font-semibold">Close</button>
-			</div>
-			<div class="p-4 sm:p-6 border-t flex flex-col sm:flex-row gap-4">
-				<img id="modalCover" src="" alt="cover"
-					class="w-24 h-32 sm:w-32 sm:h-44 object-cover bg-gray-100 rounded flex-shrink-0" />
-				<div class="flex-1">
-					<p id="modalDesc" class="text-xs sm:text-sm text-gray-700">No description available.</p>
-					<div class="mt-4">
-						<a id="modalLink" href="#" target="_blank" class="text-indigo-600 hover:underline">View on
-							OpenLibrary</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<script type="module" src="./js/index.js"></script>
+	<script type="module" src="./js/main.js"></script>
 
 </body>
 
